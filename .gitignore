@@ -4,3 +4,4 @@ dist
 build
 prismatic.egg-info
 .tox
+*.pyc
