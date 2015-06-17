@@ -6,15 +6,15 @@ def read(*paths):
         return f.read()
 
 setup(
-  name = 'prismatic',
-  packages = ['prismatic'],
-  version = '0.3',
-  description = 'Serialization between JSON dicts and data objects designed for REST APIs',
+  name='prismatic',
+  packages=['prismatic'],
+  version='0.3',
+  description='Serialization between JSON dicts and data objects designed for REST APIs',
   long_description=read('README.rst'),
   license='MIT',
-  author = 'Adam Byrtek',
-  author_email = 'adambyrtek@gmail.com',
-  url = 'https://github.com/adambyrtek/prismatic',
-  keywords = ['json', 'orm', 'serialization', 'api', 'rest'],
-  classifiers = [],
+  author='Adam Byrtek',
+  author_email='adambyrtek@gmail.com',
+  url='https://github.com/adambyrtek/prismatic',
+  keywords=['json', 'orm', 'serialization', 'api', 'rest'],
+  classifiers=[],
 )
