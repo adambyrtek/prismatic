@@ -1,3 +1,5 @@
 venv
 MANIFEST
 dist
+build
+prismatic.egg-info
