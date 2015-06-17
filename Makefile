@@ -3,11 +3,16 @@ default: test
 test:
 	venv/bin/py.test prismatic
 
-pypi: pypi-register pypi-upload
+pypi: clear pypi-register pypi-build pypi-upload
 
 pypi-register:
 	python setup.py register -r pypi
 
+pypi-build:
+	python setup.py sdist bdist_wheel
+
 pypi-upload:
-	python setup.py sdist upload -r pypi
-	python setup.py bdist_wheel upload -r pypi
+	venv/bin/twine upload -r pypi dist/*
+
+clear:
+	rm -rf build dist
