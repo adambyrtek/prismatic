@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
   name = 'prismatic',
   packages = ['prismatic'],
-  version = '0.1',
+  version = '0.2',
   description = 'Serialization between JSON dicts and data objects designed for REST APIs',
   author = 'Adam Byrtek',
   author_email = 'adambyrtek@gmail.com',
