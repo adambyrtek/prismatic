@@ -8,7 +8,6 @@ setup(
   author = 'Adam Byrtek',
   author_email = 'adambyrtek@gmail.com',
   url = 'https://github.com/adambyrtek/prismatic',
-  download_url = 'https://github.com/adambyrtek/prismatic/tarball/0.1',
   keywords = ['json', 'orm', 'serialization', 'api', 'rest'],
   classifiers = [],
 )
