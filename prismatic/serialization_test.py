@@ -6,7 +6,7 @@ from decimal import Decimal
 
 import pytest
 
-from jsonmirror import serialization as s
+from prismatic import serialization as s
 
 address_serializer = s.Serializer({
     'city': s.Field('city', s.String),
