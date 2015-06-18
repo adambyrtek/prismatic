@@ -475,18 +475,17 @@ def test_date_should_raise_on_invalid_input():
         field.json_to_model('')
 
     with pytest.raises(s.SerializationError):
-        # Not a leap year
-        field.json_to_model('2014-02-29')
+        field.json_to_model('yesterday')
 
     with pytest.raises(s.SerializationError):
-        # Use DateTime field instead
-        field.json_to_model('2015-01-01T00:00:00')
+        # Not a leap year
+        field.json_to_model('2014-02-29')
 
 
 def test_date_time_should_convert_to_json():
     field = s.DateTime()
 
-    assert field.model_to_json(datetime(2015, 1, 1, 16, 16, 37, 1)) == '2015-01-01T16:16:37.000001'
+    assert field.model_to_json(datetime(2015, 1, 1, 16, 16, 37, 1)) == '2015-01-01T16:16:37'
     assert field.model_to_json(datetime(2014, 12, 31)) == '2014-12-31T00:00:00'
     assert field.model_to_json(datetime(2012, 2, 29, 23, 59, 59)) == '2012-02-29T23:59:59'
 

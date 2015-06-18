@@ -8,6 +8,7 @@ def read(*paths):
 setup(
   name='prismatic',
   packages=['prismatic'],
+  install_requires=['isodate'],
   version='0.3',
   description='Serialization between JSON dicts and data objects designed for REST APIs',
   long_description=read('README.rst'),

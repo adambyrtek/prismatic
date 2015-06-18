@@ -18,6 +18,8 @@ It does support nested serializers.
 import decimal
 from datetime import datetime
 
+from isodate import date_isoformat, datetime_isoformat, parse_date, parse_datetime
+
 
 class SerializationError(Exception):
     pass
@@ -101,12 +103,12 @@ class Date(Converter):
 
     def model_to_json(self, model_value):
         # RFC 3339 string in JSON
-        return model_value.isoformat()
+        return date_isoformat(model_value)
 
     def json_to_model(self, json_value):
         # datetime.date in Python
         try:
-            return datetime.strptime(json_value, '%Y-%m-%d').date()
+            return parse_date(json_value)
         except ValueError as e:
             raise SerializationError(e)
 
@@ -116,18 +118,14 @@ class DateTime(Converter):
 
     def model_to_json(self, model_value):
         # RFC 3339 string in JSON
-        return model_value.isoformat()
+        return datetime_isoformat(model_value)
 
     def json_to_model(self, json_value):
         # datetime.datetime in Python
         try:
-            return datetime.strptime(json_value, '%Y-%m-%dT%H:%M:%S.%f')
-        except ValueError:
-            # Try again without microseconds
-            try:
-                return datetime.strptime(json_value, '%Y-%m-%dT%H:%M:%S')
-            except ValueError as e:
-                raise SerializationError(e)
+            return parse_datetime(json_value)
+        except ValueError as e:
+            raise SerializationError(e)
 
 
 class Array(Converter):
