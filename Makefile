@@ -1,7 +1,7 @@
 default: test
 
 test:
-	venv/bin/tox
+	venv/bin/tox prismatic
 
 pypi: clear pypi-register pypi-build pypi-upload
 
