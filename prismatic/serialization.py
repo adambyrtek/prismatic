@@ -283,6 +283,9 @@ class Serializer(AbstractSerializer):
         self._deserialize_nested(model, json_value, self.mapping, create)
 
     def _deserialize_nested(self, model, json_obj, mapping, create):
+        if json_obj is None:
+            raise SerializationError('Can deserialize only from dict-like objects')
+
         unknown_keys = set(json_obj.keys()) - set(mapping.keys())
         if unknown_keys:
             raise SerializationError(

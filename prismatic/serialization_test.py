@@ -152,6 +152,13 @@ def test_deserialize_should_raise_on_unknown_attributes():
         person_serializer.deserialize(person, {'unknownkey': 'Random value'})
 
 
+def test_deserialize_should_raise_when_data_is_none():
+    person = create_test_person()
+
+    with pytest.raises(s.SerializationError):
+        person_serializer.deserialize(person, None)
+
+
 def test_deserialize_should_raise_on_invalid_fields():
     invalid_serializer = s.Serializer({'firstName': 'bar'})
     person = create_test_person()
